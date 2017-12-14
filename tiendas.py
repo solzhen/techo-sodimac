@@ -116,3 +116,27 @@ tiendas_faltantes =total_tiendas - len(tiendas)
 print("Tiendas visitadas el ultimo mes: "+str(len(tiendas)))
 
 print("Tiendas Faltaltes por visitar: "+str(tiendas_faltantes))
+
+print(" ")
+print("Tiendas faltantes zona norte:")
+for key in tiendas_norte:
+    if key not in norte:
+        print(key)
+
+print(" ")
+print("Tiendas faltantes zona centro:")
+for key in tiendas_centro:
+    if key not in centro:
+        print(key)
+
+print(" ")
+print("Tiendas faltantes zona RM:")
+for key in tiendas_rm:
+    if key not in rm:
+        print(key)
+
+print(" ")
+print("Tiendas faltantes zona sur:")
+for key in tiendas_sur:
+    if key not in sur:
+        print(key)
