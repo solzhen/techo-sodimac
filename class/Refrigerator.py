@@ -1,8 +1,8 @@
 class Refrigerator:
 
-	options = {'Sí':1, 'No':0}
-
 	def __init__(self, clean, working, visible, quantity, stock, concern):
+		options = {'Sí':1, 'No':0}
+
 		self.clean = options[clean]
 		self.working = options[working]
 		self.visible = options[visible]

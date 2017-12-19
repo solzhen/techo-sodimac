@@ -1,10 +1,9 @@
 
 class Social_Product:
 
-	options = {'Sí':1, 'No':0}
-
-
 	def __init__(self, stock, concern, branding):
+		options = {'Sí':1, 'No':0}
+		
 		self.stock = options[stock]
 		self.concern = concern[concern]
 		self.branding = branding
