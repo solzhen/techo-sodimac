@@ -124,8 +124,7 @@ class List_Stores:
 		return len(self.rm_visited)
 
 	def total_visited(self):
-		return self.cant_rm_visited() + self.cant_sur_visited()
-		+ self.cant_centro_visited() + self.cant_norte_visited()
+		return self.cant_rm_visited() + self.cant_sur_visited()+ self.cant_centro_visited() + self.cant_norte_visited()
 
 	def not_visited_rm(self):
 		ans = []
@@ -155,12 +154,5 @@ class List_Stores:
 				ans.append(key)
 		return ans
 
-	def not_visited_total(self):
-		ans = self.not_visited_rm()
-		ans.extend(self.not_visited_norte)
-		ans.extend(self.not_visited_centro)
-		ans.extend(self.not_visited_sur)
-
-		return ans
-
-
+	def not_total_visited(self):
+		return len(self.not_visited_rm())+ len(self.not_visited_norte())+ len(self.not_visited_centro()) + len(self.not_visited_sur())

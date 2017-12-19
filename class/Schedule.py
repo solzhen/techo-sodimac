@@ -9,7 +9,3 @@ class Schedule:
 
 	def is_good(self):
 		return self.good
-
-
-hola = Schedule('hola', 'No')
-print(hola.is_good())
