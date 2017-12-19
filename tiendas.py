@@ -19,6 +19,7 @@ df = ps.DataFrame(sheet.get_all_records())
 
 tiendas_norte = {"NORTE-  Hc Antofagasta- Balmaceda Nº 2355, Interior Recinto Portuario Extremo Sur, dentro del Mall, Antofagasta":0,
                 "NORTE- Hc Iquique Héroes de la Concepción Nº 2311, Iquique":0,
+                
                 "NORTE- Hc Calama Balmaceda Nº 3398, Calama":0,
                 "NORTE 4 Hc Arica Av. Santa María Nº 2985, Arica":0,
                 "NORTE Co Antofagasta- Av. Antonio Rendic Nº 6852, Antofagasta":0,
