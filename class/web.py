@@ -24,8 +24,8 @@ class Sodimac(object):
               <input type="number" value="40" name="days" />
               <button type="submit">Ingrese Numero de Dias</button>
             </form>
-          </body>
-        </html>"""
+            </body>
+          </html>"""
 
     @cherrypy.expose
     def generate_db(self, days):
@@ -80,7 +80,7 @@ class Sodimac(object):
       ans = self.header()
       ans += "<h2>Agua sin stock</h2>"
       ans += self.tables.water_has_not_stock(self.stores)
-      ans += "<h2>Agua sin encergado</h2>"
+      ans += "<h2>Agua sin encargado</h2>"
       ans += self.tables.water_has_not_concern(self.stores)
       ans += """<body>
               </html>"""
