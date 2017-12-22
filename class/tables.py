@@ -383,7 +383,7 @@ class Tables:
 
 
 	def info_visit(self, visit):
-		formato = "%d de %B - %Y"
+		formato = "%d / %m / %Y"
 		options = {1:'Sí', 0:'No'}
 		ans = "<table>"
 		ans += "<tr><th>Fecha</th><td>"+visit.date.strftime(formato)+"</td>"
@@ -408,4 +408,102 @@ class Tables:
 		ans += "<th>Producto Solidario tenia encargado</th><td>"+options[visit.solidarity_product.concern]+"</td></tr>"
 		ans += "<tr><th>Comentarios</th><td colspan='3'>"+visit.comments+"</td></tr>"
 		ans += "</table>"
+		return ans
+
+	def info_receivers_stores(self,stores):
+		ans = "<table>"
+		ans += '<tr><th colspan="3">Zona Norte</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Visitas</th><th>Veces jefe tienda</th></tr>'
+		for value in stores.norte_visited:
+			receivers = stores.get_store(value).count_receivers()
+			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
+			ans += "<td>"+str(stores.get_store(value).cant_visits())+"</td>"
+			ans += "<td>"+str(receivers["Jefe de tienda"])+"</td></tr>"
+		ans += '</table><br>'
+
+		ans += '<table>'
+		ans += '<tr><th colspan="3">Zona Centro</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Visitas</th><th>Veces jefe tienda</th></tr>'
+		for value in stores.norte_visited:
+			receivers = stores.get_store(value).count_receivers()
+			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
+			ans += "<td>"+str(stores.get_store(value).cant_visits())+"</td>"
+			ans += "<td>"+str(receivers["Jefe de tienda"])+"</td></tr>"
+		ans += '</table><br>'
+
+		ans += '<table>'
+		ans += '<tr><th colspan="3">Region Metropolitana</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Visitas</th><th>Veces jefe tienda</th></tr>'
+		for value in stores.norte_visited:
+			receivers = stores.get_store(value).count_receivers()
+			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
+			ans += "<td>"+str(stores.get_store(value).cant_visits())+"</td>"
+			ans += "<td>"+str(receivers["Jefe de tienda"])+"</td></tr>"
+		ans += '</table><br>'
+
+		ans += '<table>'
+		ans += '<tr><th colspan="3">Zona Sur</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Visitas</th><th>Veces jefe tienda</th></tr>'
+		for value in stores.norte_visited:
+			receivers = stores.get_store(value).count_receivers()
+			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
+			ans += "<td>"+str(stores.get_store(value).cant_visits())+"</td>"
+			ans += "<td>"+str(receivers["Jefe de tienda"])+"</td></tr>"
+		ans += '</table><br>'
+
+		return ans
+
+	def info_schedule_visits(self,stores):
+		ans = "<h4>Zona norte</h4>"
+		good_schedule = stores.good_schedule_norte()
+		bad_schedule = stores.bad_schedule_norte()
+		ans += "<table>"
+		ans += "<tr><th>Horario</th><th>Buen horario</th><th>Mal horario</th></tr>"
+		for value in good_schedule:
+			ans += "<tr>"
+			ans += "<td>"+value+"</td>"
+			ans += "<td>"+str(good_schedule[value])+"</td>"
+			ans += "<td>"+str(bad_schedule[value])+"</td>"
+			ans += "</tr>"
+		ans += "</table>"
+
+		ans += "<h4>Zona centro</h4>"
+		good_schedule = stores.good_schedule_centro()
+		bad_schedule = stores.bad_schedule_centro()
+		ans += "<table>"
+		ans += "<tr><th>Horario</th><th>Buen horario</th><th>Mal horario</th></tr>"
+		for value in good_schedule:
+			ans += "<tr>"
+			ans += "<td>"+value+"</td>"
+			ans += "<td>"+str(good_schedule[value])+"</td>"
+			ans += "<td>"+str(bad_schedule[value])+"</td>"
+			ans += "</tr>"
+		ans += "</table>"
+
+		ans += "<h4>Region Metropolitana</h4>"
+		good_schedule = stores.good_schedule_rm()
+		bad_schedule = stores.bad_schedule_rm()
+		ans += "<table>"
+		ans += "<tr><th>Horario</th><th>Buen horario</th><th>Mal horario</th></tr>"
+		for value in good_schedule:
+			ans += "<tr>"
+			ans += "<td>"+value+"</td>"
+			ans += "<td>"+str(good_schedule[value])+"</td>"
+			ans += "<td>"+str(bad_schedule[value])+"</td>"
+			ans += "</tr>"
+		ans += "</table>"
+
+		ans += "<h4>Zona sur</h4>"
+		good_schedule = stores.good_schedule_sur()
+		bad_schedule = stores.bad_schedule_sur()
+		ans += "<table>"
+		ans += "<tr><th>Horario</th><th>Buen horario</th><th>Mal horario</th></tr>"
+		for value in good_schedule:
+			ans += "<tr>"
+			ans += "<td>"+value+"</td>"
+			ans += "<td>"+str(good_schedule[value])+"</td>"
+			ans += "<td>"+str(bad_schedule[value])+"</td>"
+			ans += "</tr>"
+		ans += "</table>"
+
 		return ans

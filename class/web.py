@@ -11,7 +11,7 @@ import cherrypy
 class Sodimac(object):
     def __init__(self):
       self.stores = None
-      self.days = 0
+      self.days = 1
       self.tables = Tables()
 
     @cherrypy.expose
@@ -109,7 +109,24 @@ class Sodimac(object):
 
       return ans
 
+    @cherrypy.expose
+    def receivers(self):
+      ans = self.header()
+      ans += "<h3>Cantidad de veces que estuvo jefe de tienda</h3>"
+      ans += self.tables.info_receivers_stores(self.stores)
+
+      return ans
+
+    @cherrypy.expose
+    def schedules(self):
+      ans = self.header()
+      ans += self.tables.info_schedule_visits(self.stores)
+
+      return ans
+
     def header(self):
+      hoy = datetime.today()
+      formato = "%d-%m-%Y"
       ans = """<html>
           <head>
           <style>
@@ -147,10 +164,14 @@ class Sodimac(object):
             <li><a href="./not_visited_stores">Tiendas No Visitadas</a></li>
             <li><a href="./water">Agua</a></li>
             <li><a href="./social_product">Producto Solidario</a></li>
+            <li><a href="./receivers">Recibidores</a></li>
+            <li><a href="./schedules">Horario Visitas </a></li>
           </ul>
           <br>
 
            """
+      ans += "  Consulta realizada entre los dias "+hoy.strftime(formato)
+      ans += " y "+(hoy - timedelta(days=int(self.days))).strftime(formato)
       return ans
 
 

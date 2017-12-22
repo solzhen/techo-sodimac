@@ -156,3 +156,101 @@ class List_Stores:
 
 	def not_total_visited(self):
 		return len(self.not_visited_rm())+ len(self.not_visited_norte())+ len(self.not_visited_centro()) + len(self.not_visited_sur())
+
+	def good_schedule_norte(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.norte_visited:
+			st = self.get_store(value)
+			schedules = st.count_good_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+	def bad_schedule_norte(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.norte_visited:
+			st = self.get_store(value)
+			schedules = st.count_bad_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+
+	def good_schedule_centro(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.centro_visited:
+			st = self.get_store(value)
+			schedules = st.count_good_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+	def bad_schedule_centro(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.centro_visited:
+			st = self.get_store(value)
+			schedules = st.count_bad_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+	def good_schedule_sur(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.sur_visited:
+			st = self.get_store(value)
+			schedules = st.count_good_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+	def bad_schedule_sur(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.sur_visited:
+			st = self.get_store(value)
+			schedules = st.count_bad_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+
+	def good_schedule_rm(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.rm_visited:
+			st = self.get_store(value)
+			schedules = st.count_good_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
+
+	def bad_schedule_rm(self):
+		list_schedule = {"Antes de la apertura de tienda (reunion SODIMAC )":0,
+		"Durante la mañana (visita libre)":0,"A la reunión de cambio de turno (reunion SODIMAC)":0,
+		"Durante la tarde (visita libre)":0}
+
+		for value in self.rm_visited:
+			st = self.get_store(value)
+			schedules = st.count_bad_schedule()
+			for value in schedules:
+				list_schedule[value] += schedules[value]
+		return list_schedule
