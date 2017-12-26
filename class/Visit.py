@@ -26,14 +26,31 @@ class Visit:
 	def refrigerator_is_visible(self):
 		return self.waters.refrigerator.is_visible()
 
+	def has_refrigerator(self):
+		return self.waters.refrigerator.has_refrigerator()
+
+	def quantity_refrigerator(self):
+		return self.waters.refrigerator.quantity
+
 	def water_has_stock(self):
 		return self.waters.refrigerator.has_stock()
 
 	def water_has_concern(self):
 		return self.waters.refrigerator.has_concern()
 
+	def branding_looks_good(self):
+		return self.waters.branding.looks_good()
+
+	def branding_is_clean(self):
+		return self.waters.branding.is_clean()
+
+	def branding_is_new(self):
+		return self.waters.branding.is_new()
+
 	def sp_has_stock(self):
 		return self.solidarity_product.has_stock()
 
 	def sp_has_concern(self):
 		return self.solidarity_product.has_concern()
+
+

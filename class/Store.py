@@ -74,6 +74,13 @@ class Store:
 				ans.append(self.visits[key])
 		return ans
 
+	def visits_without_refrigerator(self):
+		ans = []
+		for key in self.visits:
+			if not self.visits[key].has_refrigerator():
+				ans.append(self.visits[key])
+		return ans
+
 	def visit_water_not_has_stock(self):
 		ans = []
 		for key in self.visits:
@@ -102,10 +109,30 @@ class Store:
 				ans.append(self.visits[key])
 		return ans
 
+	def visit_branding_not_looks_good(self):
+		ans = []
+		for key in self.visits:
+			if not self.visits[key].branding_looks_good():
+				ans.append(self.visits[key])
+		return ans
+
+	def visit_branding_not_is_clean(self):
+		ans = []
+		for key in self.visits:
+			if not self.visits[key].branding_is_clean():
+				ans.append(self.visits[key])
+		return ans
+
+	def visit_branding_not_is_new(self):
+		ans = []
+		for key in self.visits:
+			if not self.visits[key].branding_is_new():
+				ans.append(self.visits[key])
+		return ans
+
 	def avg_qualification(self):
 		ans = 0
 		for key in self.visits:
 			ans += self.visits[key].qualification
 		return ans/len(self.visits)
 
-	

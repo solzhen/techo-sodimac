@@ -74,6 +74,8 @@ class Sodimac(object):
       ans += self.tables.refrigerators_not_working(self.stores)
       ans += "<h2>Refrigeradores no visibles </h2>"
       ans += self.tables.refrigerators_not_visible(self.stores)
+      ans += "<h2>Tiendas sin refrigeradores</h2>"
+      ans += self.tables.stores_without_refrigerator(self.stores)
       ans += """</body>
               </html>"""
       return ans
@@ -87,6 +89,20 @@ class Sodimac(object):
       ans += self.tables.water_has_not_concern(self.stores)
       ans += """<body>
               </html>"""
+      return ans
+
+    @cherrypy.expose
+    def branding(self):
+      ans = self.header()
+      ans += "<h2>Branding no se ve bien</h2>"
+      ans += self.tables.branding_not_looks_good(self.stores)
+      ans += "<h2>Branding no esta limpio</h2>"
+      ans += self.tables.branding_not_is_clean(self.stores)
+      ans += "<h2>Branding no se ve nuevo</h2>"
+      ans += self.tables.branding_not_is_new(self.stores)
+      ans += """<body>
+              </html>"""
+
       return ans
 
     @cherrypy.expose
@@ -166,6 +182,8 @@ class Sodimac(object):
             <li><a href="./visited_stores">Tiendas Visitadas</a></li>
             <li><a href="./not_visited_stores">Tiendas No Visitadas</a></li>
             <li><a href="./water">Agua</a></li>
+            <li><a href="./refrigerators">Refrigeradores</a></li>
+            <li><a href="./branding">Branding</a></li>
             <li><a href="./social_product">Producto Solidario</a></li>
             <li><a href="./receivers">Recibidores</a></li>
             <li><a href="./schedules">Horario Visitas </a></li>
@@ -176,10 +194,6 @@ class Sodimac(object):
       ans += "  Consulta realizada entre los dias "+hoy.strftime(formato)
       ans += " y "+(hoy - timedelta(days=int(self.days))).strftime(formato)
       return ans
-
-
-
-        
 
 
 if __name__ == '__main__':

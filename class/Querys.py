@@ -5,6 +5,7 @@ from Refrigerator import *
 from Solidarity_Product import *
 from Water import *
 from Schedule import *
+from Branding import *
 
 class Query:
 
@@ -26,8 +27,18 @@ class Query:
 				visible = self.dataframe['El refrigerador, está visible?'][index]
 				stock_refrigerator = self.dataframe['En relación al stock de aguas. Estaba lleno el refrigerador? '][index]
 				concern_refrigerator = self.dataframe['En relación al stock de aguas. Alguien se preocupa de esto? '][index]
-				refrigerator = Refrigerator(clean,working,visible,stock_refrigerator,concern_refrigerator)
-				water = Water(refrigerator)
+				quantity = self.dataframe['Cuantos refrigeradores tiene la tienda? '][index]
+				if quantity == '':
+					quantity = -1
+				refrigerator = Refrigerator(clean,working,visible,stock_refrigerator,concern_refrigerator,quantity)
+				
+				
+				brand_looks_good = self.dataframe['Aspectos del Branding, se ve bien la marca? '][index]
+				brand_is_clean = self.dataframe['Aspectos del Branding, está limpia la gráfica?'][index]
+				brand_new = self.dataframe['Aspectos del Branding, se ve nuevo?'][index]
+				brand = Branding(brand_looks_good,brand_is_clean,brand_new)
+				
+				water = Water(refrigerator, brand)
 
 				stock_sp = self.dataframe['En relación al stock de producto solidario. Había suficiente stock? '][index]
 				concern_sp = self.dataframe['En relación al stock de producto solidario. Alguien se preocupa de esto? '][index]

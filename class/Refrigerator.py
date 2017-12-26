@@ -1,6 +1,6 @@
 class Refrigerator:
 
-	def __init__(self, clean, working, visible, stock, concern):
+	def __init__(self, clean, working, visible, stock, concern, quantity):
 		options = {'Sí':1, 'No':0}
 
 		self.clean = options[clean]
@@ -8,6 +8,7 @@ class Refrigerator:
 		self.visible = options[visible]
 		self.stock = options[stock]
 		self.concern = options[concern]
+		self.quantity = quantity
 
 	def is_clean(self):
 		return self.clean == 1
@@ -23,4 +24,7 @@ class Refrigerator:
 
 	def has_stock(self):
 		return self.stock == 1
+
+	def has_refrigerator(self):
+		return self.quantity != 0
 

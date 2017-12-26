@@ -71,6 +71,8 @@ class Sodimac(object):
       ans += self.tables.refrigerators_not_working(self.stores)
       ans += "<h2>Refrigeradores no visibles </h2>"
       ans += self.tables.refrigerators_not_visible(self.stores)
+      ans += "<h2>Tiendas sin refrigeradores</h2>"
+      ans += self.tables.stores_without_refrigerator(self.stores)
       ans += """</body>
               </html>"""
       return ans
@@ -163,6 +165,7 @@ class Sodimac(object):
             <li><a href="./visited_stores">Tiendas Visitadas</a></li>
             <li><a href="./not_visited_stores">Tiendas No Visitadas</a></li>
             <li><a href="./water">Agua</a></li>
+            <li><a href="./refrigerators">Refrigeradores</a></li>
             <li><a href="./social_product">Producto Solidario</a></li>
             <li><a href="./receivers">Recibidores</a></li>
             <li><a href="./schedules">Horario Visitas </a></li>

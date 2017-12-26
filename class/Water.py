@@ -1,9 +1,9 @@
 
 class Water:
 
-	def __init__(self, refrigerator):
+	def __init__(self, refrigerator,branding):
 		self.refrigerator = refrigerator
-		self.branding = None
+		self.branding = branding
 
 	def set_refrigerator(self, refrigerator):
 		self.refrigerator = refrigerator
