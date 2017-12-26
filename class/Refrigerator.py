@@ -27,4 +27,3 @@ class Refrigerator:
 
 	def has_refrigerator(self):
 		return self.quantity != 0
-

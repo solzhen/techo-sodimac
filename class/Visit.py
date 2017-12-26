@@ -52,5 +52,3 @@ class Visit:
 
 	def sp_has_concern(self):
 		return self.solidarity_product.has_concern()
-
-

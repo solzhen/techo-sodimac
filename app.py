@@ -1,5 +1,6 @@
 import sys
 sys.path.append('class')
+import pandas as ps
 from datetime import datetime, date, time, timedelta
 from Connection import *
 from Store import *
@@ -36,6 +37,7 @@ class Sodimac(object):
       connection = Connection("Visitas Sodimac (Responses)", 'client_secret.json')
       sheet1 = connection.get_sheet1()
 
+      #crea objeto de pandas dataframe
       df = ps.DataFrame(sheet1.get_all_records())
 
       self.stores = List_Stores()
@@ -178,7 +180,6 @@ class Sodimac(object):
             </head>
           <body>
           <ul  class="horizontal">
-            <li><a href="./index"> Inicio</a></li>
             <li><a href="./visited_stores">Tiendas Visitadas</a></li>
             <li><a href="./not_visited_stores">Tiendas No Visitadas</a></li>
             <li><a href="./water">Agua</a></li>
@@ -187,6 +188,7 @@ class Sodimac(object):
             <li><a href="./social_product">Producto Solidario</a></li>
             <li><a href="./receivers">Recibidores</a></li>
             <li><a href="./schedules">Horario Visitas </a></li>
+            <li><a href="./index">Nueva Consulta</a></li>
           </ul>
           <br>
 
