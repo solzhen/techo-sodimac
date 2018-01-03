@@ -337,6 +337,44 @@ class Tables:
 		ans += "</table><br>"
 		return ans
 
+	def hasnt_branding(self,stores):
+		ans = "<table>"
+		ans += '<tr><th colspan="2">Zona Norte</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
+		for value in stores.norte_visited:
+			cant = len(stores.get_store(value).visit_hasnt_branding())
+			if cant > 0:
+				ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td><td>"+str(cant)+"</td></tr>"
+		ans += "</table><br>"
+
+		ans += "<table>"
+		ans += '<tr><th colspan="2">Zona Centro</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
+		for value in stores.centro_visited:
+			cant = len(stores.get_store(value).visit_hasnt_branding())
+			if cant > 0:
+				ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td><td>"+str(cant)+"</td></tr>"
+		ans += "</table><br>"
+
+		ans += "<table>"
+		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
+		for value in stores.rm_visited:
+			cant = len(stores.get_store(value).visit_hasnt_branding())
+			if cant > 0:
+				ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td><td>"+str(cant)+"</td></tr>"
+		ans += "</table><br>"
+
+		ans += "<table>"
+		ans += '<tr><th colspan="2">Zona Sur</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
+		for value in stores.rm_visited:
+			cant = len(stores.get_store(value).visit_hasnt_branding())
+			if cant > 0:
+				ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td><td>"+str(cant)+"</td></tr>"
+		ans += "</table><br>"
+		return ans
+
 	def branding_not_looks_good(self,stores):
 		ans = "<table>"
 		ans += '<tr><th colspan="2">Zona Norte</th><tr>'
@@ -566,7 +604,15 @@ class Tables:
 		return ans
 
 	def resume_store(self,store):
-		ans = "<table>"
+		ans = "<h4>Informacion de la tienda</h4>"
+		ans += "<table>"
+		ans += "<tr><th>Gerente</th><th>Celular</th><th>Anexo</th><th>Telefono</th><th>Gerente Regional</th></tr>"
+		ans += "<tr><td>"+store.info.manager+"</td>"+"<td>"+store.info.cellphone+"</td>"
+		ans += "<td>"+store.info.annexed+"</td>"+"<td>"+store.info.phone+"</td><td>"+store.info.regional_manager+"</tr>"
+		ans += "<tr><th>Direccion</th><td colspan='4'>"+store.info.direction+"</td></tr>"
+		ans += "</table><br>"
+
+		ans += "<table>"
 		ans += "<tr><th>Cantidad Visitas</th><td>"+str(len(store.visits))+"</td>"
 		ans += "<th>Calificacion promedio</th><td>"+str(store.avg_qualification())+"</td></tr>"
 		ans += "</table>"
@@ -613,14 +659,14 @@ class Tables:
 
 		ans += "<tr><th>Horario Visita</th><td>"+visit.schedule.name+"</td>"
 		ans += "<th>Buen Horario</th><td>"+options[visit.schedule.good]+"</td></tr>"
-		ans += "<th>Recibidores</th><td colspan='3'>"
+		ans += "<th>Recibidores</th><td>"
 		i = 0
 		for value in visit.receivers:
 			if i != 0:
 				ans += ", "
 			ans += value
 			i += 1
-		ans += "</td></tr><tr>"
+		ans += "</td><th>Tenía Branding</th><td>"+options[visit.waters.branding.has_branding]+"</tr><tr>"
 		ans += "<th>Refrigerador funcionaba</th><td>"+options[visit.waters.refrigerator.working]+"</td>"
 		ans += "<th>Refrigerador estaba limpio</th><td>"+options[visit.waters.refrigerator.clean]+"</td></tr>"
 		ans += "<tr><th>Refrigerador estaba visible</th><td>"+options[visit.waters.refrigerator.visible]+"</td>"
