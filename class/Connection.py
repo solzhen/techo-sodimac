@@ -13,3 +13,6 @@ class Connection:
 	def get_sheet1(self):
 		return self.sheet.sheet1
 
+	def get_sheet(self,n):
+		return self.sheet.get_worksheet(n-1)
+

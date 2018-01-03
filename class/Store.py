@@ -7,10 +7,14 @@ class Store:
 		self.name = name
 		self.visits = {}
 		self.last_visit = None
+		self.info = None
 
 	def add_visit(self, new_visit):
 		self.visits[new_visit.date] = new_visit
 		self.last_visit = new_visit
+
+	def set_info(self, info):
+		self.info = info
 
 	def count_visits(self,init,final):
 		ans = 0
@@ -106,6 +110,13 @@ class Store:
 		ans = []
 		for key in self.visits:
 			if not self.visits[key].sp_has_concern():
+				ans.append(self.visits[key])
+		return ans
+
+	def visit_hasnt_branding(self):
+		ans = []
+		for key in self.visits:
+			if not self.visits[key].hasnt_branding():
 				ans.append(self.visits[key])
 		return ans
 

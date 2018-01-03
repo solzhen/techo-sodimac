@@ -2,9 +2,10 @@
 class Branding:
 
 
-	def __init__(self, brand, clean, new):
+	def __init__(self, has_branding, brand, clean, new):
 		options = {'Sí':1, 'No':0}
 		
+		self.has_branding = options[has_branding]
 		self.look_good = options[brand]
 		self.clean = options[clean]
 		self.new = options[new]
@@ -17,3 +18,6 @@ class Branding:
 
 	def is_new(self):
 		return self.new == 1
+
+	def hasnt_branding(self):
+		return self.has_branding == 0

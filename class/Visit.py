@@ -38,6 +38,9 @@ class Visit:
 	def water_has_concern(self):
 		return self.waters.refrigerator.has_concern()
 
+	def hasnt_branding(self):
+		return self.waters.branding.hasnt_branding()
+
 	def branding_looks_good(self):
 		return self.waters.branding.looks_good()
 

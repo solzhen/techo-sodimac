@@ -35,14 +35,12 @@ class Sodimac(object):
     def generate_db(self, days):
       self.days = days
       connection = Connection("Visitas Sodimac (Responses)", 'client_secret.json')
-      sheet1 = connection.get_sheet1()
 
       #crea objeto de pandas dataframe
-      df = ps.DataFrame(sheet1.get_all_records())
 
       self.stores = List_Stores()
 
-      querys = Query(df, self.stores)
+      querys = Query(connection, self.stores)
       querys.query_date(int(days))
 
       return self.visited_stores()
@@ -96,6 +94,8 @@ class Sodimac(object):
     @cherrypy.expose
     def branding(self):
       ans = self.header()
+      ans += "<h2>Sin Branding</h2>"
+      ans += self.tables.hasnt_branding(self.stores)
       ans += "<h2>Branding no se ve bien</h2>"
       ans += self.tables.branding_not_looks_good(self.stores)
       ans += "<h2>Branding no esta limpio</h2>"
