@@ -45,4 +45,4 @@ tables: genera strings con tablas para mostrar en app.py.
 
 Cuando la aplicacion se inicializa, pide el numero de dias y luego calcula todo con respecto
 a ese numero de dias. Se conecta con Connection, y Querys muta el objeto List_Stores creado.
-Luego se hacen las consultas a la List_Stores usando los metodos de este objeto
+Luego se hacen las consultas a la List_Stores usando los metodos de este objeto.
