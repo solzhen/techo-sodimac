@@ -26,7 +26,7 @@ class Sodimac(object):
           <body>
             <form method="get" action="generate_db">
               <input type="number" value="40" name="days" />
-              <button type="submit">Ingrese Numero de Dias</button>
+              <button type="submit">Ingrese Número de días</button>
             </form>
             </body>
           </html>"""
@@ -193,7 +193,7 @@ class Sodimac(object):
           <br>
 
            """
-      ans += "  Consulta realizada entre los dias "+hoy.strftime(formato)
+      ans += "  Consulta realizada entre los días "+hoy.strftime(formato)
       ans += " y "+(hoy - timedelta(days=int(self.days))).strftime(formato)
       return ans
 

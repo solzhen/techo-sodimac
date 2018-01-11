@@ -16,7 +16,7 @@ class Tables:
 	def visited_stores(self, stores):
 		ans = "<table>"
 		ans += '<tr><th colspan="3">Zona Norte</th><tr>'
-		ans += '<tr><th>Tienda</th><th>Promedio Calificacion</th><th>Visitas</th></tr>'
+		ans += '<tr><th>Tienda</th><th>Promedio Calificación</th><th>Visitas</th></tr>'
 		for value in stores.norte_visited:
 			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
 			ans += "<td>"+str(stores.norte_visited[value].avg_qualification())+"</td>"
@@ -25,7 +25,7 @@ class Tables:
 
 		ans += '<table>'
 		ans += '<tr><th colspan="3">Zona Centro</th><tr>'
-		ans += '<tr><th>Tienda</th><th>Promedio Calificacion</th><th>Visitas</th></tr>'
+		ans += '<tr><th>Tienda</th><th>Promedio Calificación</th><th>Visitas</th></tr>'
 		for value in stores.centro_visited:
 			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
 			ans += "<td>"+str(stores.centro_visited[value].avg_qualification())+"</td>"
@@ -33,8 +33,8 @@ class Tables:
 		ans += '</table><br>'
 
 		ans += '<table>'
-		ans += '<tr><th colspan="3">Region Metropolitana</th><tr>'
-		ans += '<tr><th>Tienda</th><th>Promedio Calificacion</th><th>Visitas</th></tr>'
+		ans += '<tr><th colspan="3">Región Metropolitana</th><tr>'
+		ans += '<tr><th>Tienda</th><th>Promedio Calificación</th><th>Visitas</th></tr>'
 		for value in stores.rm_visited:
 			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
 			ans += "<td>"+str(stores.rm_visited[value].avg_qualification())+"</td>"
@@ -43,7 +43,7 @@ class Tables:
 
 		ans += '<table>'
 		ans += '<tr><th colspan="3">Zona Sur</th><tr>'
-		ans += '<tr><th>Tienda</th><th>Promedio Calificacion</th><th>Visitas</th></tr>'
+		ans += '<tr><th>Tienda</th><th>Promedio Calificación</th><th>Visitas</th></tr>'
 		for value in stores.sur_visited:
 			ans += "<tr><td><a href =./info_store?st="+self.parse_link(value)+">"+value+"</a></td>"
 			ans += "<td>"+str(stores.sur_visited[value].avg_qualification())+"</td>"
@@ -68,7 +68,7 @@ class Tables:
 		ans += '</table><br>'
 
 		ans += '<table>'
-		ans += '<tr><th colspan="3">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="3">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th></tr>'
 		for value in stores.not_visited_rm():
 			ans += "<tr><td>"+value+"</td>"
@@ -103,7 +103,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visits_refrigerator_not_clean())
@@ -141,7 +141,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visits_refrigerator_not_working())
@@ -179,7 +179,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visits_refrigerator_not_visible())
@@ -230,7 +230,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Fecha visita</th></tr>'
 		for value in stores.norte_visited:
 			visits = stores.get_store(value).visits_without_refrigerator()
@@ -281,7 +281,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_water_not_has_stock())
@@ -319,7 +319,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_water_not_has_concern())
@@ -357,7 +357,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_hasnt_branding())
@@ -395,7 +395,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_branding_not_looks_good())
@@ -433,7 +433,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_branding_not_is_clean())
@@ -471,7 +471,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_branding_not_is_clean())
@@ -509,7 +509,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_branding_not_is_new())
@@ -547,7 +547,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_sp_not_has_stock())
@@ -585,7 +585,7 @@ class Tables:
 		ans += "</table><br>"
 
 		ans += "<table>"
-		ans += '<tr><th colspan="2">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="2">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Veces</th></tr>'
 		for value in stores.rm_visited:
 			cant = len(stores.get_store(value).visit_sp_not_has_concern())
@@ -604,17 +604,17 @@ class Tables:
 		return ans
 
 	def resume_store(self,store):
-		ans = "<h4>Informacion de la tienda</h4>"
+		ans = "<h4>Información de la tienda</h4>"
 		ans += "<table>"
-		ans += "<tr><th>Gerente</th><th>Celular</th><th>Anexo</th><th>Telefono</th><th>Gerente Regional</th></tr>"
+		ans += "<tr><th>Gerente</th><th>Celular</th><th>Anexo</th><th>Telefono</th><th>Gerente Regiónal</th></tr>"
 		ans += "<tr><td>"+store.info.manager+"</td>"+"<td>"+store.info.cellphone+"</td>"
-		ans += "<td>"+store.info.annexed+"</td>"+"<td>"+store.info.phone+"</td><td>"+store.info.regional_manager+"</tr>"
+		ans += "<td>"+store.info.annexed+"</td>"+"<td>"+store.info.phone+"</td><td>"+store.info.Regiónal_manager+"</tr>"
 		ans += "<tr><th>Direccion</th><td colspan='4'>"+store.info.direction+"</td></tr>"
 		ans += "</table><br>"
 
 		ans += "<table>"
 		ans += "<tr><th>Cantidad Visitas</th><td>"+str(len(store.visits))+"</td>"
-		ans += "<th>Calificacion promedio</th><td>"+str(store.avg_qualification())+"</td></tr>"
+		ans += "<th>Calificación promedio</th><td>"+str(store.avg_qualification())+"</td></tr>"
 		ans += "</table>"
 		ans += "<h4>Resumen cantidad de recibidores</h4>"
 		ans += "<table><tr>"
@@ -655,7 +655,7 @@ class Tables:
 
 		ans = "<table>"
 		ans += "<tr><th>Fecha</th><td>"+visit.date.strftime(formato)+"</td>"
-		ans += "<th>Calificacion</th><td>"+str(visit.qualification)+"</td></tr>"
+		ans += "<th>Calificación</th><td>"+str(visit.qualification)+"</td></tr>"
 
 		ans += "<tr><th>Horario Visita</th><td>"+visit.schedule.name+"</td>"
 		ans += "<th>Buen Horario</th><td>"+options[visit.schedule.good]+"</td></tr>"
@@ -672,9 +672,9 @@ class Tables:
 		ans += "<tr><th>Refrigerador estaba visible</th><td>"+options[visit.waters.refrigerator.visible]+"</td>"
 		ans += "<th>Cantidad Refrigeradores</th><td>"+self.cant_refrigerator(visit.quantity_refrigerator())+"</td></tr>"
 		ans += "<tr><th>Refrigerador tenía encargado</th><td>"+options[visit.waters.refrigerator.concern]+"</td>"
-		ans += "<th>Refrigerador tenia stock </th><td>"+options[visit.waters.refrigerator.stock]+"</td></tr>"
-		ans += "<tr><th>Producto Solidario tenia stock</th><td>"+options[visit.solidarity_product.stock]+"</td>"
-		ans += "<th>Producto Solidario tenia encargado</th><td>"+options[visit.solidarity_product.concern]+"</td></tr>"
+		ans += "<th>Refrigerador tenía stock </th><td>"+options[visit.waters.refrigerator.stock]+"</td></tr>"
+		ans += "<tr><th>Producto Solidario tenía stock</th><td>"+options[visit.solidarity_product.stock]+"</td>"
+		ans += "<th>Producto Solidario tenía encargado</th><td>"+options[visit.solidarity_product.concern]+"</td></tr>"
 		ans += "<tr><th>Comentarios</th><td colspan='3'>"+visit.comments+"</td></tr>"
 		ans += "</table>"
 		return ans
@@ -701,7 +701,7 @@ class Tables:
 		ans += '</table><br>'
 
 		ans += '<table>'
-		ans += '<tr><th colspan="3">Region Metropolitana</th><tr>'
+		ans += '<tr><th colspan="3">Región Metropolitana</th><tr>'
 		ans += '<tr><th>Tienda</th><th>Visitas</th><th>Veces jefe tienda</th></tr>'
 		for value in stores.norte_visited:
 			receivers = stores.get_store(value).count_receivers()
@@ -749,7 +749,7 @@ class Tables:
 			ans += "</tr>"
 		ans += "</table>"
 
-		ans += "<h4>Region Metropolitana</h4>"
+		ans += "<h4>Región Metropolitana</h4>"
 		good_schedule = stores.good_schedule_rm()
 		bad_schedule = stores.bad_schedule_rm()
 		ans += "<table>"
