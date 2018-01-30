@@ -606,7 +606,7 @@ class Tables:
 	def resume_store(self,store):
 		ans = "<h4>Información de la tienda</h4>"
 		ans += "<table>"
-		ans += "<tr><th>Gerente</th><th>Celular</th><th>Anexo</th><th>Telefono</th><th>Gerente Regiónal</th></tr>"
+		ans += "<tr><th>Gerente</th><th>Celular</th><th>Anexo</th><th>Telefono</th><th>Gerente Regional</th></tr>"
 		ans += "<tr><td>"+store.info.manager+"</td>"+"<td>"+store.info.cellphone+"</td>"
 		ans += "<td>"+store.info.annexed+"</td>"+"<td>"+store.info.phone+"</td><td>"+store.info.regional_manager+"</tr>"
 		ans += "<tr><th>Direccion</th><td colspan='4'>"+store.info.direction+"</td></tr>"
